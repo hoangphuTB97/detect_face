@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="./scripts.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <a href="login.html">
+            <button class="btn">Login</button>
+        </a>
+        <!-- Thêm input cho ngày tháng năm -->
+        <input type="date" id="datePicker">
+    </header>
+    <h1 class="center">CÔNG TY CỔ PHẦN PHÁT TRIỂN VÀ ĐẦU TƯ ABC</h1>
+    <h2 class="center">Danh Sách Nhân Viên Đã Có Dữ Liệu Chấm Công</h2>
+    <div>
+        <table>
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên Nhân Viên</th>
+                    <th>Ngày</th>
+                    <th>Giờ Check-in</th>
+                    <th>Giờ Check-out</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="display: none;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

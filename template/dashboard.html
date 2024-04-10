@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+</head>
+<body>
+
+<div class="menu">
+    <button id="menuBtn">Menu</button>
+    <div id="menuOptions" class="menu-options">
+        <ul>
+            <li><a href="./quan-ly/nhan-vien.html" id="employeeManagement">Quản lý nhân viên</a></li>
+            <li><a href="./quan-ly/cham-cong.html" id="attendanceManagement">Quản lý chấm công nhân viên</a></li>
+        </ul>
+    </div>
+</div>
+<div class="centered-text">
+    <h1>Hệ Thống Quản Lý Dữ Liệu Chấm Công</h1>
+</div>
+
+
+<script>
+    document.getElementById("menuBtn").addEventListener("click", function() {
+        var menuOptions = document.getElementById("menuOptions");
+        if (menuOptions.style.display === "block") {
+            menuOptions.style.display = "none";
+        } else {
+            menuOptions.style.display = "block";
+        }
+    });
+
+    document.getElementById("attendanceManagement").addEventListener("click", function() {
+        var filterContainer = document.getElementById("filterContainer");
+        if (filterContainer.style.display === "block") {
+            filterContainer.style.display = "none";
+        } else {
+            filterContainer.style.display = "block";
+        }
+    });
+
+    document.getElementById("applyFilterBtn").addEventListener("click", function() {
+    });
+</script>
+
+</body>
+</html>

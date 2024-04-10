@@ -1,0 +1,46 @@
+html {
+    background-image: url(../img/backgroud.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1 {
+    font-family: 'Times New Roman', Times, serif, sans-serif; /* Chọn font Arial hoặc font sans-serif */
+    text-shadow: 3px 3px 4px rgba(235, 247, 237, 0.808); /* Thiết lập đổ bóng */
+}
+.center {
+    text-align: center;
+    margin: 80px 0 50px 0;
+    color:rgb(15, 15, 15);
+    
+}
+
+table {
+    width: 70%; /* Đặt chiều rộng của bảng */
+    margin: 0 auto; /* Đặt margin tự động để bảng nằm giữa trang */
+    border-collapse: collapse; /* Gộp viền của các ô */
+}
+th, td {
+    padding: 15px;
+    border: 1px solid black;
+}
+.btn {
+    font-size: 16px;
+    margin-top: 3px;
+    background-color: rgb(191, 245, 245);
+    border-radius: 5px;
+    color: black;
+    height: 30px;
+    width: 100px;
+    position: absolute;
+    right: 12px;
+}
+/* Kiểu cho input ngày tháng */
+#datePicker {
+    font-size: 16px;
+    margin-top: 3px;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(9, 12, 12);
+    background-color: rgb(191, 245, 245);
+
+}

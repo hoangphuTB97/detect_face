@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="menu">
+        <button id="menuBtn">Menu</button>
+        <div id="menuOptions" class="menu-options">
+            <ul>
+                <li><a href="#" id="attendanceManagement">Quản lý chấm công nhân viên</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="centered-text">
+        <h1>Hệ Thống Quản Lý Dữ Liệu Nhân Viên</h1>
+    </div>
+<!-- Modal -->
+<div id="editEmployeeModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Sửa thông tin nhân viên</h2>
+        <form id="editEmployeeForm">
+            <div class="form-group">
+                <label for="nameInput">Tên Nhân Viên:</label>
+                <input type="text" id="nameInput" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="genderInput">Giới Tính:</label>
+                <select id="genderInput" name="gender" required>
+                    <option value="Male">Nam</option>
+                    <option value="Female">Nữ</option>
+                    <option value="Other">Khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="birthYearInput">Năm Sinh:</label>
+                <input type="number" id="birthYearInput" name="birthYear" required>
+            </div>
+            <div class="form-group">
+                <label for="positionInput">Vị Trí:</label>
+                <input type="text" id="positionInput" name="position" required>
+            </div>
+            <div class="form-group">
+                <label for="departmentInput">Phòng Ban:</label>
+                <input type="text" id="departmentInput" name="department" required>
+            </div>
+            <button type="submit">Lưu</button>
+        </form>
+    </div>
+</div>
+
+    <table>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Nhân Viên</th>
+                <th>Giới tính</th>
+                <th>Năm sinh</th>
+                <th>Vị trí</th>
+                <th>Phòng ban</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+            <!-- Các hàng dữ liệu sẽ được thêm vào đây bằng JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="./nhan-vien-scripts.js"></script>
+    <script>
+        document.getElementById("menuBtn").addEventListener("click", function () {
+            var menuOptions = document.getElementById("menuOptions");
+            if (menuOptions.style.display === "block") {
+                menuOptions.style.display = "none";
+            } else {
+                menuOptions.style.display = "block";
+            }
+        });
+
+        document.getElementById("attendanceManagement").addEventListener("click", function () {
+            var filterContainer = document.getElementById("filterContainer");
+            if (filterContainer.style.display === "block") {
+                filterContainer.style.display = "none";
+            } else {
+                filterContainer.style.display = "block";
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

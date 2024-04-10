@@ -1,0 +1,17 @@
+face_detection:
+    model:
+        bin_path: "./libs/face_detection/weights/mnet.25-opt.bin"
+        param_path: "./libs/face_detection/weights/mnet.25-opt.param"
+        use_vulkan_compute: False
+    postprocess:
+        prob_threshold: 0.5
+        nms_threshold: 0.5
+
+face_extract_feature:
+    model:
+        bin_path: "./libs/face_extract_feature/weights/arcface_resnet18.ncnn.bin"
+        param_path: "./libs/face_extract_feature/weights/arcface_resnet18.ncnn.param"
+        use_vulkan_compute: False
+    preprocess:
+        mean_vals: [127.5, 127.5, 127.5]
+        norm_vals: [0.007843137, 0.007843137, 0.007843137]

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý chấm công nhân viên</title>
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+</head>
+
+<body>
+    <div class="menu">
+        <button id="menuBtn">Menu</button>
+        <div id="menuOptions" class="menu-options">
+            <ul>
+                <li><a href="#" id="attendanceManagement">Quản lý chấm công nhân viên</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="centered-text">
+        <h1>Hệ Thống Quản Lý Dữ Liệu Chấm Công</h1>
+    </div>
+
+    <div>
+        Chọn tháng:
+        <select id="monthSelect" onchange="handleMonthChange()">
+            <option value="1">Tháng 1</option>
+            <option value="2">Tháng 2</option>
+            <option value="3">Tháng 3</option>
+            <option value="4">Tháng 4</option>
+            <option value="5">Tháng 5</option>
+            <option value="6">Tháng 6</option>
+            <option value="7">Tháng 7</option>
+            <option value="8">Tháng 8</option>
+            <option value="9">Tháng 9</option>
+            <option value="10">Tháng 10</option>
+            <option value="11">Tháng 11</option>
+            <option value="12">Tháng 12</option>
+        </select>
+        
+        <button id="calculateAttendanceBtn">Tính toán</button>
+    </div>
+
+    <div class="filter-container" id="filterContainer">
+        <select class="filter-option" id="filterByName">
+            <option value="">Chọn theo tên nhân viên</option>
+            <!-- Thêm các tùy chọn tên nhân viên từ dữ liệu -->
+        </select>
+        <select class="filter-option" id="filterByDepartment">
+            <option value="">Chọn theo phòng ban</option>
+            <option value="hcns">Phòng HCNS</option>
+            <option value="dev">Phòng Dev</option>
+            <option value="ai">Phòng AI</option>
+            <option value="marketing">Phòng Marketing</option>
+        </select>
+        <select class="filter-option" id="filterByPosition">
+            <option value="">Chọn theo vị trí</option>
+            <option value="">Nhân viên</option>
+            <!-- Thêm các tùy chọn vị trí từ dữ liệu -->
+        </select>
+        <button id="applyFilterBtn">Áp dụng</button>
+    </div>
+<div id="attendanceDays"></div>
+    <table>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Tên Nhân Viên</th>
+                <th>Phòng ban</th>
+                <th>Vị trí</th>
+                <th>Tổng số ngày công trong tháng</th>
+                <th>Số lần đi muộn</th>
+                <th>Số lần về sớm</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+            <!-- Các hàng dữ liệu sẽ được thêm vào đây bằng JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="./cham-cong-scripts.js"></script>
+    <script>
+        const handleMonthChange = () => {
+    getEmployees();
+};
+
+        // document.getElementById("menuBtn").addEventListener("click", function () {
+        //     var menuOptions = document.getElementById("menuOptions");
+        //     if (menuOptions.style.display === "block") {
+        //         menuOptions.style.display = "none";
+        //     } else {
+        //         menuOptions.style.display = "block";
+        //     }
+        // });
+
+        // document.getElementById("attendanceManagement").addEventListener("click", function () {
+        //     var filterContainer = document.getElementById("filterContainer");
+        //     if (filterContainer.style.display === "block") {
+        //         filterContainer.style.display = "none";
+        //     } else {
+        //         filterContainer.style.display = "block";
+        //     }
+        // });
+
+        // document.getElementById("applyFilterBtn").addEventListener("click", function () {
+        //     // Thêm mã xử lý lọc dữ liệu ở đây khi cần
+        // });
+
+        // document.getElementById("calculateAttendanceBtn").addEventListener("click", function () {
+        //     // Lấy giá trị tháng từ select box
+        //     var selectedMonth = document.getElementById("monthSelect").value;
+
+        //     // Gọi hàm để tính toán số lần chấm công
+        //     updateTable(selectedMonth);
+        // });
+
+    </script>
+</body>
+
+</html>
