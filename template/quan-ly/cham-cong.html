@@ -38,10 +38,7 @@
             <option value="11">Tháng 11</option>
             <option value="12">Tháng 12</option>
         </select>
-        
-        <button id="calculateAttendanceBtn">Tính toán</button>
-    </div>
-
+        </div>
     <div class="filter-container" id="filterContainer">
         <select class="filter-option" id="filterByName">
             <option value="">Chọn theo tên nhân viên</option>
@@ -53,11 +50,6 @@
             <option value="dev">Phòng Dev</option>
             <option value="ai">Phòng AI</option>
             <option value="marketing">Phòng Marketing</option>
-        </select>
-        <select class="filter-option" id="filterByPosition">
-            <option value="">Chọn theo vị trí</option>
-            <option value="">Nhân viên</option>
-            <!-- Thêm các tùy chọn vị trí từ dữ liệu -->
         </select>
         <button id="applyFilterBtn">Áp dụng</button>
     </div>
@@ -76,7 +68,6 @@
             </tr>
         </thead>
         <tbody id="employeeTableBody">
-            <!-- Các hàng dữ liệu sẽ được thêm vào đây bằng JavaScript -->
         </tbody>
     </table>
 
@@ -86,36 +77,27 @@
     getEmployees();
 };
 
-        // document.getElementById("menuBtn").addEventListener("click", function () {
-        //     var menuOptions = document.getElementById("menuOptions");
-        //     if (menuOptions.style.display === "block") {
-        //         menuOptions.style.display = "none";
-        //     } else {
-        //         menuOptions.style.display = "block";
-        //     }
-        // });
+        document.getElementById("menuBtn").addEventListener("click", function () {
+            var menuOptions = document.getElementById("menuOptions");
+            if (menuOptions.style.display === "block") {
+                menuOptions.style.display = "none";
+            } else {
+                menuOptions.style.display = "block";
+            }
+        });
 
-        // document.getElementById("attendanceManagement").addEventListener("click", function () {
-        //     var filterContainer = document.getElementById("filterContainer");
-        //     if (filterContainer.style.display === "block") {
-        //         filterContainer.style.display = "none";
-        //     } else {
-        //         filterContainer.style.display = "block";
-        //     }
-        // });
+        document.getElementById("attendanceManagement").addEventListener("click", function () {
+            var filterContainer = document.getElementById("filterContainer");
+            if (filterContainer.style.display === "block") {
+                filterContainer.style.display = "none";
+            } else {
+                filterContainer.style.display = "block";
+            }
+        });
 
-        // document.getElementById("applyFilterBtn").addEventListener("click", function () {
-        //     // Thêm mã xử lý lọc dữ liệu ở đây khi cần
-        // });
-
-        // document.getElementById("calculateAttendanceBtn").addEventListener("click", function () {
-        //     // Lấy giá trị tháng từ select box
-        //     var selectedMonth = document.getElementById("monthSelect").value;
-
-        //     // Gọi hàm để tính toán số lần chấm công
-        //     updateTable(selectedMonth);
-        // });
-
+        document.getElementById("applyFilterBtn").addEventListener("click", function () {
+        });
+        
     </script>
 </body>
 

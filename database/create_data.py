@@ -85,6 +85,14 @@ class DatabaseManager:
             SET CHECK_OUT_TIME = ?
             WHERE ID_NV = ? AND DATE = ?""", (check_out_time, id_nv, date))
         self.conn.commit()
+
+    def update_attendance_check_in(self, id, date, check_in_time):
+        self.cursor.execute("""
+            UPDATE ATTENDANCE
+            SET CHECK_IN_TIME = ?
+            WHERE ID = ? AND DATE = ?""", (check_in_time, id, date))
+        self.conn.commit()
+
         
     def delete_employee(self, employee_id):
         self.cursor.execute("""
@@ -111,7 +119,8 @@ db_manager = DatabaseManager('databases.db')
 # db_manager.select_all_from_employees()
 # db_manager.delete_all_rows_from_attendance()
 # db_manager.update_employee_name(1, 'Hoàng Ngọc Phú','Nhân Viên','DEV')
-db_manager.update_attendance_date('9', '2024-04-10')
+# db_manager.update_attendance_date('9', '2024-04-10')
 # db_manager.update_attendance_check_out('1', '2023-10-10 15:00:00')
+# db_manager.update_attendance_check_in('4', '2024-04-05', '08:19:22')
 # db_manager.delete_employee(1)
 db_manager.close_connection()

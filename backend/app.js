@@ -36,50 +36,51 @@ let db = new sqlite3.Database(
 );
 // Thêm một endpoint mới để lấy thông tin tất cả nhân viên
 app.get("/employees", async (req, res) => {
-    const employees = await db.all("SELECT * FROM EMPLOYEES", (err, rows) => {
-      if (err) {
-        console.error(err.message);
-      }
-      res.send(rows);
-    });
-  });
-  
-app.get("/attendance", async (req, res) => {
-  const attendaces = await db.all(
-    `SELECT ATTENDANCE.*, EMPLOYEES.name AS NAME
-    FROM ATTENDANCE
-    INNER JOIN EMPLOYEES ON ATTENDANCE.ID_NV = EMPLOYEES.id`,
-    
-    (err, rows) => {
-      if (err) {
-        console.error(err.message);
-      }
-      res.send(rows);
+  const employees = await db.all("SELECT * FROM EMPLOYEES", (err, rows) => {
+    if (err) {
+      console.error(err.message);
     }
-  );
+    res.send(rows);
+  });
 });
+
+// app.get("/attendance", async (req, res) => {
+//   const attendaces = await db.all(
+//     `SELECT ATTENDANCE.*, EMPLOYEES.name AS NAME
+//     FROM ATTENDANCE
+//     INNER JOIN EMPLOYEES ON ATTENDANCE.ID_NV = EMPLOYEES.id`,
+
+//     (err, rows) => {
+//       if (err) {
+//         console.error(err.message);
+//       }
+//       res.send(rows);
+//     }
+//   );
+// });
 app.get("/attendance", async (req, res) => {
   try {
     const selectedMonth = req.query.month;
     const attendances = await db.all(
-      `SELECT ATTENDANCE.ID_NV, 
-              COUNT(*) AS total_working_days,
-              SUM(ATTENDANCE.LATE) AS total_late,
-              SUM(ATTENDANCE.EARLY) AS total_early
-      FROM ATTENDANCE 
-      INNER JOIN EMPLOYEES ON ATTENDANCE.ID_NV = EMPLOYEES.id
-      WHERE strftime('%m', ATTENDANCE.DATE) = ?
-      GROUP BY ATTENDANCE.ID_NV`,
-      [selectedMonth]
+      `SELECT ID_NV, 
+      COUNT(*) AS AttendanceCount,
+      SUM(CASE WHEN TIME(CHECK_IN_TIME) > TIME('08:30') THEN 1 ELSE 0 END) AS lateCount,
+      SUM(CASE WHEN TIME(CHECK_OUT_TIME) < TIME('17:30') THEN 1 ELSE 0 END) AS earlyCount
+      FROM ATTENDANCE
+      WHERE substr(DATE, 6, 2) = '${selectedMonth.padStart(2, "0")}'
+      GROUP BY ID_NV;`,
+      (err, rows) => {
+        if (err) {
+          console.error(err.message);
+        }
+        res.send(rows);
+      }
     );
-    
-    res.send(attendances);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

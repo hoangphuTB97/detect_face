@@ -61,7 +61,7 @@ html {
 }
 
 .menu-options ul li a:hover {
-    background-color: #f2f2f2;
+    background-color: #e4d2d2;
 }
 .centered-text {
     text-align: center;
@@ -75,6 +75,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    background-color: #c3e5eb;
   }
   
   td, th {
@@ -85,7 +86,7 @@ table {
   }
   
   tr:nth-child(even) {
-    background-color: #f1e0e0;
+    background-color: #e6c8c8;
   }
   th {
     border-top: 1px solid #ddd;
